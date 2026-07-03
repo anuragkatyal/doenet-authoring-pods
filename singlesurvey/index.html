@@ -313,7 +313,7 @@
           <button type="button" onClick="{{ onCopy }}" style="background:none;border:none;padding:4px;font:700 13.5px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">{{ copyLabel }}</button>
         </div>
         <sc-if value="{{ useFormspree }}" hint-placeholder-val="{{ false }}">
-          <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">Goes straight to <b>{{ recipientLabel }}</b> - no email app needed - so folks with overlapping interests and hours can be matched into pods.</p>
+          <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">Goes straight to the matchmakers at Doenet - no email app needed - so folks with overlapping interests and hours can be matched into pods.</p>
         </sc-if>
         <sc-if value="{{ useMailto }}" hint-placeholder-val="{{ true }}">
           <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">This opens your email app with everything pre-filled - just hit send. It goes to <b>{{ recipientLabel }}</b>, who matches folks with overlapping interests and availability into pods.</p>
@@ -323,7 +323,7 @@
           <div style="display:inline-block;background:#fff;border:2px solid #3FB9DF;border-radius:20px;padding:26px 34px;box-shadow:0 14px 34px -22px rgba(42,35,32,.5)">
             <div style="width:52px;height:52px;border-radius:50%;background:#84EAFF;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font:800 26px Nunito;color:#154851">✓</div>
             <div style="font:600 22px Fredoka;color:#2A2320">Signup sent!</div>
-            <p style="font:400 14.5px/1.6 Nunito;color:#5F554C;margin:8px 0 0;max-width:380px">Your free times and pod picks are on their way to <b>{{ recipientLabel }}</b>. Watch your inbox for your pod matches.</p>
+            <p style="font:400 14.5px/1.6 Nunito;color:#5F554C;margin:8px 0 0;max-width:380px">Your free times and pod picks are on their way to the matchmakers at Doenet. Watch your inbox for your pod matches.</p>
             <button type="button" onClick="{{ onEditAgain }}" style="margin-top:14px;background:none;border:none;padding:4px;font:700 13px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">Change something? Edit &amp; resend</button>
           </div>
         </sc-if>
