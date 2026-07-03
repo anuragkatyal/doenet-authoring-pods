@@ -289,18 +289,44 @@
       </div>
 
       <div data-reveal="" style="margin-top:26px;text-align:center">
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
         <div style="font:700 14px Nunito;color:#5F554C;margin-bottom:13px">{{ recapLabel }}</div>
         <sc-if value="{{ ready }}" hint-placeholder-val="{{ false }}">
-          <a href="{{ mailtoHref }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#84EAFF;color:#154851;font:600 17px Fredoka,sans-serif;text-decoration:none;box-shadow:0 4px 0 #44B2D4" style-hover="transform:translateY(2px);box-shadow:0 2px 0 #44B2D4">Email my availability&nbsp;↗</a>
+          <sc-if value="{{ useFormspree }}" hint-placeholder-val="{{ true }}">
+            <button type="button" onClick="{{ onSubmit }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#84EAFF;color:#154851;font:600 17px Fredoka,sans-serif;border:none;cursor:pointer;box-shadow:0 4px 0 #44B2D4" style-hover="transform:translateY(2px);box-shadow:0 2px 0 #44B2D4">{{ submitLabel }}</button>
+          </sc-if>
+          <sc-if value="{{ useMailto }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ mailtoHref }}" style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#84EAFF;color:#154851;font:600 17px Fredoka,sans-serif;text-decoration:none;box-shadow:0 4px 0 #44B2D4" style-hover="transform:translateY(2px);box-shadow:0 2px 0 #44B2D4">Email my availability&nbsp;↗</a>
+          </sc-if>
         </sc-if>
         <sc-if value="{{ notReady }}" hint-placeholder-val="{{ true }}">
-          <span style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#DFD3BF;color:#8A7A68;font:600 17px Fredoka,sans-serif;box-shadow:0 4px 0 #BCAE97;cursor:not-allowed">Email my availability&nbsp;↗</span>
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#DFD3BF;color:#8A7A68;font:600 17px Fredoka,sans-serif;box-shadow:0 4px 0 #BCAE97;cursor:not-allowed">{{ disabledCtaLabel }}</span>
           <div style="font:700 13px Nunito;color:#B0533A;margin-top:11px">Still needed: {{ missingLabel }}</div>
         </sc-if>
-        <div style="margin-top:12px">
+        <sc-if value="{{ hasSubmitError }}" hint-placeholder-val="{{ false }}">
+          <div style="font:700 13px Nunito;color:#B0533A;margin-top:12px">Couldn't send ({{ submitErrorLabel }}). <a href="{{ mailtoHref }}" style="color:#2E9DC2">Send by email instead&nbsp;↗</a></div>
+        </sc-if>
+        <div style="margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px 20px;flex-wrap:wrap">
+          <sc-if value="{{ useFormspree }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ mailtoHref }}" style="font:700 13.5px Nunito;color:#2E9DC2;text-decoration:underline">Send by email instead&nbsp;↗</a>
+          </sc-if>
           <button type="button" onClick="{{ onCopy }}" style="background:none;border:none;padding:4px;font:700 13.5px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">{{ copyLabel }}</button>
         </div>
-        <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">This opens your email app with everything pre-filled - just hit send. It goes to <b>{{ recipientLabel }}</b>, who matches folks with overlapping interests and availability into pods.</p>
+        <sc-if value="{{ useFormspree }}" hint-placeholder-val="{{ false }}">
+          <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">Goes straight to <b>{{ recipientLabel }}</b> - no email app needed - so folks with overlapping interests and hours can be matched into pods.</p>
+        </sc-if>
+        <sc-if value="{{ useMailto }}" hint-placeholder-val="{{ true }}">
+          <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">This opens your email app with everything pre-filled - just hit send. It goes to <b>{{ recipientLabel }}</b>, who matches folks with overlapping interests and availability into pods.</p>
+        </sc-if>
+        </sc-if>
+        <sc-if value="{{ submittedOk }}" hint-placeholder-val="{{ false }}">
+          <div style="display:inline-block;background:#fff;border:2px solid #3FB9DF;border-radius:20px;padding:26px 34px;box-shadow:0 14px 34px -22px rgba(42,35,32,.5)">
+            <div style="width:52px;height:52px;border-radius:50%;background:#84EAFF;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font:800 26px Nunito;color:#154851">✓</div>
+            <div style="font:600 22px Fredoka;color:#2A2320">Signup sent!</div>
+            <p style="font:400 14.5px/1.6 Nunito;color:#5F554C;margin:8px 0 0;max-width:380px">Your free times and pod picks are on their way to <b>{{ recipientLabel }}</b>. Watch your inbox for your pod matches.</p>
+            <button type="button" onClick="{{ onEditAgain }}" style="margin-top:14px;background:none;border:none;padding:4px;font:700 13px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">Change something? Edit &amp; resend</button>
+          </div>
+        </sc-if>
       </div>
 
     </div>
@@ -374,6 +400,7 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{
+  &quot;formspreeId&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;mgojprjj&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Signup form&quot;},
   &quot;recipient&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;anurag@whyoverhow.com&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Signup form&quot;},
   &quot;includeWeekends&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: false, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Availability grid&quot;},
   &quot;startHour&quot;: {&quot;editor&quot;: &quot;float&quot;, &quot;default&quot;: 8, &quot;min&quot;: 0, &quot;max&quot;: 12, &quot;step&quot;: 0.5, &quot;unit&quot;: &quot;h ET&quot;, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Availability grid&quot;},
@@ -393,6 +420,9 @@ class Component extends DCLogic {
       name: '',
       email: '',
       copied: false,
+      submitting: false,
+      submitted: false,
+      submitError: '',
     };
     this._gridRef = React.createRef();
     this._paint = null;
@@ -684,6 +714,41 @@ class Component extends DCLogic {
 
     const recapLabel = tzLabel + ' · ' + podNames.length + (podNames.length === 1 ? ' pod' : ' pods');
 
+    // ---------- Formspree direct submission ----------
+    const fsRaw = String(this.props.formspreeId || 'mgojprjj').trim();
+    const fsMatch = fsRaw.match(/f\/([A-Za-z0-9]+)/);
+    const fsId = fsMatch ? fsMatch[1] : (/^[A-Za-z0-9]{6,12}$/.test(fsRaw) ? fsRaw : '');
+    const useFormspree = !!fsId;
+    const onSubmit = () => {
+      if (!ready || this.state.submitting) return;
+      this.setState({ submitting: true, submitError: '' });
+      const payload = {
+        _subject: subject,
+        name: nm,
+        email: em,
+        timezone: tzLabel + ' [' + tz + ']',
+        pods: podNames.join('; '),
+        availability_eastern: humanLines.join('\n'),
+        pods_key: podKey,
+        slots_et_key: keyLine,
+      };
+      fetch('https://formspree.io/f/' + fsId, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      }).then((r) => {
+        if (r.ok) { this.setState({ submitting: false, submitted: true }); return; }
+        return r.json().then((j) => {
+          const msg = (j && j.errors && j.errors.length) ? j.errors.map((x) => x.message).join('; ') : ('error ' + r.status);
+          throw new Error(msg);
+        }, () => { throw new Error('error ' + r.status); });
+      }).catch((err) => {
+        this.setState({ submitting: false, submitError: (err && err.message) ? err.message : 'network error' });
+      });
+    };
+    const submitLabel = this.state.submitting ? 'Sending…' : 'Submit';
+    const hasSubmitError = !!this.state.submitError && !this.state.submitted;
+
     const onCopy = () => {
       const done = () => {
         this.setState({ copied: true });
@@ -784,6 +849,16 @@ class Component extends DCLogic {
       recapLabel,
       ready,
       notReady: !ready,
+      useFormspree,
+      useMailto: !useFormspree,
+      onSubmit,
+      submitLabel,
+      disabledCtaLabel: useFormspree ? 'Submit' : 'Email my availability ↗',
+      hasSubmitError,
+      submitErrorLabel: this.state.submitError,
+      showForm: !this.state.submitted,
+      submittedOk: !!this.state.submitted,
+      onEditAgain: () => this.setState({ submitted: false }),
       missingLabel: missing.join(' · '),
       mailtoHref,
       onCopy,
