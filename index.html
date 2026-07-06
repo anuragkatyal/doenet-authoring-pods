@@ -1,16 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Doenet Author Pods — Sign up</title>
-<style>
-  /* Accessibility: restore visible keyboard focus indicators (WCAG 2.4.7).
-     !important overrides the inline outline:none on the availability-grid cells;
-     negative outline-offset keeps the ring inside the grid's overflow:hidden. */
-  [data-slot]:focus-visible{outline:2px solid #1C7085!important;outline-offset:-2px}
-  button[role="radio"]:focus-visible{outline:2px solid #1C7085;outline-offset:2px}
-</style>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -30,7 +22,7 @@
       <img src="assets/doenet-logo.png" alt="Doenet" style="width:40px;height:40px;display:block">
       <div style="display:flex;flex-direction:column;line-height:1">
         <span style="font:600 18px Fredoka,sans-serif;color:#2A2320">Doenet</span>
-        <span style="font:700 10.5px Nunito;letter-spacing:.15em;text-transform:uppercase;color:#8A4F22;margin-top:3px">Author Pods</span>
+        <span style="font:700 10.5px Nunito;letter-spacing:.15em;text-transform:uppercase;color:#C07F4E;margin-top:3px">Author Pods</span>
       </div>
     </div>
     <div style="display:flex;align-items:center">
@@ -40,7 +32,7 @@
         <a href="#schedule" style="color:#2A2320;text-decoration:none">Schedule</a>
         <a href="#signup" style="color:#2A2320;text-decoration:none">Sign up</a>
         <a href="#help" style="color:#2A2320;text-decoration:none">Need help?</a>
-        <a href="https://beta.doenet.org" target="_blank" rel="noopener" style="color:#1C7085;text-decoration:none">Back to Doenet↗</a>
+        <a href="https://beta.doenet.org" target="_blank" rel="noopener" style="color:#2E9DC2;text-decoration:none">Back to Doenet↗</a>
       </div>
       </sc-if>
       <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
@@ -64,7 +56,7 @@
         <a href="#schedule" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">Schedule</a>
         <a href="#signup" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">Sign up</a>
         <a href="#help" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">Need help?</a>
-        <a href="https://beta.doenet.org" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#1C7085;text-decoration:none;font:700 15px Nunito">Back to beta.doenet.org&nbsp;↗</a>
+        <a href="https://beta.doenet.org" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2E9DC2;text-decoration:none;font:700 15px Nunito">Back to beta.doenet.org&nbsp;↗</a>
       </div>
       </sc-if>
     </div>
@@ -75,7 +67,7 @@
   <div data-screen-label="Hero" style="position:relative;padding:clamp(24px,4.5vw,34px) clamp(20px,5vw,32px) clamp(22px,4vw,30px);text-align:center;background:radial-gradient(130% 92% at 50% -22%,#D6F5FE 0%,#FBF3E6 56%);overflow:hidden">
     <div data-plx-hero="" style="position:relative;max-width:640px;margin:0 auto">
       <img src="assets/doenet-logo.png" alt="Doenet" style="width:56px;height:56px;display:block;margin:0 auto 10px">
-      <div style="font:700 12.5px Nunito;letter-spacing:.18em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Curriculum Group · Author Pods</div>
+      <div style="font:700 12.5px Nunito;letter-spacing:.18em;text-transform:uppercase;color:#C07F4E;margin-bottom:10px">Curriculum Group · Author Pods</div>
       <h1 style="font:600 48px/1.04 Fredoka,sans-serif;color:#2A2320;margin:0 0 10px;letter-spacing:-.01em;font-size:clamp(31px,7.5vw,48px)">Bake better activities, together.</h1>
       <p style="font:400 18px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:520px">Pods of authors meeting online to help each other build Doenet activities.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
@@ -85,7 +77,7 @@
     </div>
   </div><div id="pods" data-screen-label="The pods" style="scroll-margin-top:20px;padding:clamp(40px,6.5vw,54px) clamp(20px,5vw,32px);background:#F2E6D1">
     <div style="max-width:960px;margin:0 auto">
-      <div data-reveal="" style="text-align:center;font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:26px">Two flavors · join as many as you like</div>
+      <div data-reveal="" style="text-align:center;font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#C07F4E;margin-bottom:26px">Two flavors · join as many as you like</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px;align-items:start">
 
         <div data-reveal="" style="background:#fff;border-radius:24px;border:1px solid rgba(42,35,32,.08);box-shadow:0 18px 44px -24px rgba(42,35,32,.45);overflow:hidden">
@@ -115,7 +107,7 @@
               <div style="width:46px;height:46px;border-radius:50%;background:radial-gradient(circle,transparent 34%,#7C5B4A 35%);flex:none"></div>
               <div>
                 <h3 style="font:600 25px Fredoka;color:#2A2320;margin:0">Test Kitchen</h3>
-                <span style="display:inline-block;margin-top:4px;padding:3px 11px;border-radius:999px;background:#F6E7D6;color:#8A4F22;font:700 10.5px Nunito;letter-spacing:.05em;text-transform:uppercase">Active collaboration</span>
+                <span style="display:inline-block;margin-top:4px;padding:3px 11px;border-radius:999px;background:#F6E7D6;color:#9A5A2A;font:700 10.5px Nunito;letter-spacing:.05em;text-transform:uppercase">Active collaboration</span>
               </div>
             </div>
             <p style="font:600 16px/1.5 Nunito;color:#2A2320;margin:18px 0 14px">Share what you're cooking up and get pedagogy-first feedback.</p>
@@ -126,14 +118,14 @@
               <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,transparent 33%,#D89A66 34%);flex:none;margin-top:4px"></span><span style="font:400 15px/1.5 Nunito;color:#4A433D">No one brought anything? It simply runs as a proofing room.</span></div>
             </div>
             <div style="margin-top:18px;background:#FBEFE2;border-radius:16px;padding:15px 18px">
-              <div style="font:700 10.5px Nunito;letter-spacing:.1em;text-transform:uppercase;color:#8A4F22;margin-bottom:9px">A typical session</div>
+              <div style="font:700 10.5px Nunito;letter-spacing:.1em;text-transform:uppercase;color:#9A5A2A;margin-bottom:9px">A typical session</div>
               <div style="display:flex;flex-direction:column;gap:8px">
-                <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;min-width:74px;font:700 12px Nunito;color:#8A4F22">~10 min</span><span style="font:400 14px/1.45 Nunito;color:#4A433D">Check-in &amp; community time</span></div>
-                <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;min-width:74px;font:700 12px Nunito;color:#8A4F22">12–15 min</span><span style="font:400 14px/1.45 Nunito;color:#4A433D">Each presenter - live demo or a volunteer run-through</span></div>
-                <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;min-width:74px;font:700 12px Nunito;color:#8A4F22">Feedback</span><span style="font:400 14px/1.45 Nunito;color:#4A433D">Presenter's choice: a few quiet minutes of written feedback in the chat, or a round-robin discussion that iterates in real time.</span></div>
+                <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;min-width:74px;font:700 12px Nunito;color:#9A5A2A">~10 min</span><span style="font:400 14px/1.45 Nunito;color:#4A433D">Check-in &amp; community time</span></div>
+                <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;min-width:74px;font:700 12px Nunito;color:#9A5A2A">12–15 min</span><span style="font:400 14px/1.45 Nunito;color:#4A433D">Each presenter - live demo or a volunteer run-through</span></div>
+                <div style="display:flex;gap:12px;align-items:baseline"><span style="flex:none;min-width:74px;font:700 12px Nunito;color:#9A5A2A">Feedback</span><span style="font:400 14px/1.45 Nunito;color:#4A433D">Presenter's choice: a few quiet minutes of written feedback in the chat, or a round-robin discussion that iterates in real time.</span></div>
               </div>
             </div>
-            <p style="margin:13px 2px 0;font:italic 400 13.5px/1.5 Nunito;color:#695E52">Reviewed activities can move on toward the Curated Library of Activities.</p>
+            <p style="margin:13px 2px 0;font:italic 400 13.5px/1.5 Nunito;color:#7A6E64">Reviewed activities can move on toward the Curated Library of Activities.</p>
           </div>
         </div>
 
@@ -144,7 +136,7 @@
   <div id="schedule" data-screen-label="Schedule" style="scroll-margin-top:20px;padding:clamp(40px,6.5vw,54px) clamp(20px,5vw,32px);background:#FBF3E6">
     <div style="max-width:960px;margin:0 auto">
       <div data-reveal="" style="text-align:center">
-        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Already rising</div>
+        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#C07F4E;margin-bottom:10px">Already rising</div>
         <h2 style="font:600 34px Fredoka;color:#2A2320;margin:0 0 11px;font-size:clamp(26px,6vw,34px)">Pods meeting now</h2>
         <p style="font:400 17px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:540px">Hop into one that's already on the calendar, or sign up below to start a fresh batch.</p>
       </div>
@@ -157,13 +149,13 @@
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:8px 12px;flex-wrap:wrap">
                   <div style="font:700 14.5px Nunito;color:#2A2320"><span>{{ r.day }}</span> · <span style="color:#5F554C;font-weight:600">{{ r.time }}</span></div>
                 <div style="display:flex;align-items:center;gap:8px;flex:none">
-                  <sc-if value="{{ r.hasCal }}" hint-placeholder-val="{{ true }}"><a href="{{ r.calHref }}" download="{{ r.calName }}" onClick="{{ r.onCal }}" title="Add to calendar (.ics)" aria-label="Download calendar invite" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;background:#F4ECDD;border:1px solid rgba(42,35,32,.1);color:#695E52;text-decoration:none;cursor:pointer" style-hover="background:#EADFC9;color:#2A2320"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M12 14v4"></path><path d="M10 16h4"></path></svg></a></sc-if>
+                  <sc-if value="{{ r.hasCal }}" hint-placeholder-val="{{ true }}"><a href="{{ r.calHref }}" download="{{ r.calName }}" onClick="{{ r.onCal }}" title="Add to calendar (.ics)" aria-label="Download calendar invite" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;background:#F4ECDD;border:1px solid rgba(42,35,32,.1);color:#7A6E64;text-decoration:none;cursor:pointer" style-hover="background:#EADFC9;color:#2A2320"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M12 14v4"></path><path d="M10 16h4"></path></svg></a></sc-if>
                   <sc-if value="{{ r.isZoom }}" hint-placeholder-val="{{ true }}"><a href="{{ r.hostUrl }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:999px;background:#84EAFF;color:#154851;font:700 11.5px Nunito;text-decoration:none;white-space:nowrap" style-hover="background:#6FE0F7">Join on Zoom&nbsp;↗</a></sc-if>
                   <sc-if value="{{ r.isTeams }}" hint-placeholder-val="{{ false }}"><a href="{{ r.hostUrl }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:999px;background:#5B5FC7;color:#fff;font:700 11.5px Nunito;text-decoration:none;white-space:nowrap" style-hover="background:#4A4EBD">Join on Teams&nbsp;↗</a></sc-if>
-                  <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}"><a href="mailto:curriculum@doenet.org?subject=Friday%20proofing%20room%20time%20suggestion" style="flex:none;display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:999px;background:#FBF6EC;border:1.5px dashed #E2C39B;color:#8A4F22;font:700 11.5px Nunito;text-decoration:none;white-space:nowrap" style-hover="background:#F6EBD8">Suggest a time&nbsp;↗</a></sc-if>
+                  <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}"><a href="mailto:curriculum@doenet.org?subject=Friday%20proofing%20room%20time%20suggestion" style="flex:none;display:inline-flex;align-items:center;gap:5px;padding:6px 13px;border-radius:999px;background:#FBF6EC;border:1.5px dashed #E2C39B;color:#9A5A2A;font:700 11.5px Nunito;text-decoration:none;white-space:nowrap" style-hover="background:#F6EBD8">Suggest a time&nbsp;↗</a></sc-if>
                 </div>
                 </div>
-                <div style="margin-top:3px"><sc-if value="{{ r.hasMail }}" hint-placeholder-val="{{ true }}"><a href="{{ r.hostMailto }}" style="font:400 12.5px Nunito;color:#695E52;text-decoration:none" style-hover="text-decoration:underline">{{ r.members }}</a></sc-if><sc-if value="{{ r.noMail }}" hint-placeholder-val="{{ false }}"><span style="font:400 12.5px Nunito;color:#695E52">{{ r.members }}</span></sc-if></div>
+                <div style="margin-top:3px"><sc-if value="{{ r.hasMail }}" hint-placeholder-val="{{ true }}"><a href="{{ r.hostMailto }}" style="font:400 12.5px Nunito;color:#7A6E64;text-decoration:none" style-hover="text-decoration:underline">{{ r.members }}</a></sc-if><sc-if value="{{ r.noMail }}" hint-placeholder-val="{{ false }}"><span style="font:400 12.5px Nunito;color:#7A6E64">{{ r.members }}</span></sc-if></div>
               </div>
             </sc-for>
           </div>
@@ -175,9 +167,9 @@
               <div style="background:#fff;border-radius:14px;padding:13px 16px;border:1px solid rgba(42,35,32,.07)">
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
                   <div style="font:700 14.5px Nunito;color:#2A2320"><span>{{ k.day }}</span> · <span style="color:#5F554C;font-weight:600">{{ k.timeLabel }}</span></div>
-                  <div style="display:flex;align-items:center;gap:6px;flex:none"><sc-if value="{{ k.full }}" hint-placeholder-val="{{ false }}"><span style="padding:4px 10px;border-radius:999px;background:#EDE4D6;color:#5F5443;font:700 10px Nunito;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Full</span></sc-if><sc-if value="{{ k.hasFocus }}" hint-placeholder-val="{{ true }}"><span style="padding:4px 10px;border-radius:999px;background:#F6E7D6;color:#8A4F22;font:700 11px Nunito;white-space:nowrap">{{ k.focus }}</span></sc-if></div>
+                  <div style="display:flex;align-items:center;gap:6px;flex:none"><sc-if value="{{ k.full }}" hint-placeholder-val="{{ false }}"><span style="padding:4px 10px;border-radius:999px;background:#EDE4D6;color:#8A7A68;font:700 10px Nunito;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Full</span></sc-if><sc-if value="{{ k.hasFocus }}" hint-placeholder-val="{{ true }}"><span style="padding:4px 10px;border-radius:999px;background:#F6E7D6;color:#9A5A2A;font:700 11px Nunito;white-space:nowrap">{{ k.focus }}</span></sc-if></div>
                 </div>
-                <div style="font:400 12.5px Nunito;color:#695E52;margin-top:3px">{{ k.members }}</div>
+                <div style="font:400 12.5px Nunito;color:#7A6E64;margin-top:3px">{{ k.members }}</div>
               </div>
             </sc-for>
           </div>
@@ -189,7 +181,7 @@
   <div id="signup" data-screen-label="Sign up" style="scroll-margin-top:20px;padding:clamp(40px,6.5vw,54px) clamp(20px,5vw,32px);background:#F2E6D1">
     <div style="max-width:960px;margin:0 auto">
       <div data-reveal="" style="text-align:center;margin-bottom:30px">
-        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Sign up · Summer 2026</div>
+        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#C07F4E;margin-bottom:10px">Sign up · Summer 2026</div>
         <h2 style="font:600 34px Fredoka;color:#2A2320;margin:0 0 11px;font-size:clamp(26px,6vw,34px)">Tell us when you're free</h2>
         <p style="font:400 17px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:620px">Four quick steps - your time zone, your free times, your pods, your name. We'll match you with authors who share your interests and your hours. Pods meet online - Zoom, Meet, or Teams, each pod's pick.</p>
       </div>
@@ -200,9 +192,11 @@
           <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">Your time zone</h3>
         </div>
         <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">Auto-detected from your device - fix it if we guessed wrong. The grid below will speak your local clock.</p>
-        <div role="radiogroup" aria-label="Your time zone" style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
-          <sc-for list="{{ tzOptions }}" as="o" hint-placeholder-count="7"><button type="button" onClick="{{ o.onSelect }}" role="radio" aria-checked="{{ o.ariaPressed }}" style="padding:9px 14px;border-radius:999px;border:1.5px solid {{ o.bc }};background:{{ o.bg }};color:{{ o.color }};font:700 13.5px Nunito;cursor:pointer;-webkit-tap-highlight-color:transparent" style-hover="filter:brightness(.96)">{{ o.label }}</button></sc-for>
-          <span style="font:700 12.5px Nunito;color:#8A4F22;background:#F6E7D6;padding:7px 14px;border-radius:999px">{{ tzDiffLabel }}</span>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <select value="{{ tz }}" onChange="{{ onTz }}" aria-label="Your time zone" style="padding:12px 14px;border-radius:12px;border:1.5px solid rgba(42,35,32,.16);background:#FBF6EC;font:700 15px Nunito;color:#2A2320;cursor:pointer;max-width:100%">
+            <sc-for list="{{ tzOptions }}" as="o" hint-placeholder-count="7"><option value="{{ o.id }}">{{ o.label }}</option></sc-for>
+          </select>
+          <span style="font:700 12.5px Nunito;color:#9A5A2A;background:#F6E7D6;padding:7px 14px;border-radius:999px">{{ tzDiffLabel }}</span>
         </div>
       </div>
 
@@ -218,7 +212,7 @@
             <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:#3FBFE4;border:1.5px solid #3FBFE4"></span>I'm free</span>
             <span style="flex:1"></span>
             
-            <button type="button" onClick="{{ clearSlots }}" style="background:none;border:none;padding:4px 2px;font:700 13px Nunito;color:#1C7085;cursor:pointer;text-decoration:underline">Clear all</button>
+            <button type="button" onClick="{{ clearSlots }}" style="background:none;border:none;padding:4px 2px;font:700 13px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">Clear all</button>
           </div>
           <div ref="{{ gridRef }}" style="border:1px solid rgba(42,35,32,.18);border-radius:14px;background:#fff;overflow:hidden;user-select:none;-webkit-user-select:none">
             <div style="display:flex;background:#F4ECDD;border-bottom:2px solid rgba(42,35,32,.16)">
@@ -230,7 +224,7 @@
             <sc-for list="{{ gridRows }}" as="row" hint-placeholder-count="37">
               <div style="display:flex">
                 <div style="width:76px;flex:none;display:flex;align-items:center;justify-content:flex-end;padding-right:9px;background:#FBF6EC;border-top:1px solid rgba(42,35,32,.06)">
-                  <span style="font:700 11.5px Nunito;color:#2A2320;white-space:nowrap">{{ row.hourLabel }}</span><span style="font:600 10.5px Nunito;color:#736759;white-space:nowrap">{{ row.halfLabel }}</span>
+                  <span style="font:700 11.5px Nunito;color:#2A2320;white-space:nowrap">{{ row.hourLabel }}</span><span style="font:600 10.5px Nunito;color:#A79A8C;white-space:nowrap">{{ row.halfLabel }}</span>
                 </div>
                 <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="5">
                   <button type="button" data-slot="{{ c.key }}" aria-label="{{ c.aria }}" aria-pressed="{{ c.ariaPressed }}" style="flex:1 1 0;min-width:0;height:29px;margin:0;padding:0;border:none;outline:none;border-left:1px solid rgba(42,35,32,.1);border-top:1px solid rgba(42,35,32,.07);cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent;background:{{ c.bg }}" style-hover="filter:brightness(.92)"></button>
@@ -239,8 +233,8 @@
             </sc-for>
           </div>
           <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:8px">
-            <span style="font:italic 400 12.5px Nunito;color:#695E52">Your picks are saved in Eastern Time behind the scenes.</span>
-            <sc-if value="{{ anyWrapped }}" hint-placeholder-val="{{ false }}"><span style="font:600 12.5px Nunito;color:#8A4F22">* = next day in your time zone</span></sc-if>
+            <span style="font:italic 400 12.5px Nunito;color:#7A6E64">Your picks are saved in Eastern Time behind the scenes.</span>
+            <sc-if value="{{ anyWrapped }}" hint-placeholder-val="{{ false }}"><span style="font:600 12.5px Nunito;color:#9A5A2A">* = next day in your time zone</span></sc-if>
           </div>
         </div>
       </div>
@@ -261,14 +255,14 @@
         </button>
         <div style="display:flex;align-items:center;gap:10px;margin:18px 0 10px">
           <span style="width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,transparent 33%,#D89A66 34%);flex:none"></span>
-          <span style="font:700 11.5px Nunito;letter-spacing:.12em;text-transform:uppercase;color:#8A4F22">Test Kitchens · by topic</span>
+          <span style="font:700 11.5px Nunito;letter-spacing:.12em;text-transform:uppercase;color:#9A5A2A">Test Kitchens · by topic</span>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px">
           <sc-for list="{{ podTopics }}" as="p" hint-placeholder-count="13">
             <button type="button" onClick="{{ p.onToggle }}" aria-pressed="{{ p.ariaPressed }}" style="display:flex;align-items:center;gap:12px;text-align:left;border-radius:14px;padding:11px 14px;cursor:pointer;background:{{ p.bg }};border:2px solid {{ p.bc }}" style-hover="transform:translateY(-1px)">
               <span style="flex:1;min-width:0">
                 <span style="display:block;font:700 14px/1.35 Nunito;color:#2A2320">{{ p.name }}</span>
-                <span style="display:block;font:600 11.5px Nunito;color:#8A4F22">{{ p.leadLabel }}</span>
+                <span style="display:block;font:600 11.5px Nunito;color:#9A5A2A">{{ p.leadLabel }}</span>
               </span>
               <span style="flex:none;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 12px Nunito;color:#fff;border:2px solid {{ p.markBc }};background:{{ p.markBg }}">{{ p.mark }}</span>
             </button>
@@ -284,11 +278,11 @@
         <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">So we can reach out to you with pod matches.</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px">
           <label style="display:block">
-            <span style="display:block;font:700 11.5px Nunito;letter-spacing:.08em;text-transform:uppercase;color:#695E52;margin-bottom:5px">Name</span>
+            <span style="display:block;font:700 11.5px Nunito;letter-spacing:.08em;text-transform:uppercase;color:#7A6E64;margin-bottom:5px">Name</span>
             <input value="{{ nameVal }}" onChange="{{ onName }}" placeholder="Doenet Smith" style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:12px;border:1.5px solid rgba(42,35,32,.16);background:#FBF6EC;font:600 15px Nunito;color:#2A2320;outline:none" style-focus="border-color:#3FBFE4;background:#fff">
           </label>
           <label style="display:block">
-            <span style="display:block;font:700 11.5px Nunito;letter-spacing:.08em;text-transform:uppercase;color:#695E52;margin-bottom:5px">Email</span>
+            <span style="display:block;font:700 11.5px Nunito;letter-spacing:.08em;text-transform:uppercase;color:#7A6E64;margin-bottom:5px">Email</span>
             <input type="email" value="{{ emailVal }}" onChange="{{ onEmail }}" placeholder="name@email.com" style="width:100%;box-sizing:border-box;padding:12px 14px;border-radius:12px;border:1.5px solid rgba(42,35,32,.16);background:#FBF6EC;font:600 15px Nunito;color:#2A2320;outline:none" style-focus="border-color:#3FBFE4;background:#fff">
           </label>
         </div>
@@ -306,23 +300,23 @@
           </sc-if>
         </sc-if>
         <sc-if value="{{ notReady }}" hint-placeholder-val="{{ true }}">
-          <span style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#DFD3BF;color:#5F5443;font:600 17px Fredoka,sans-serif;box-shadow:0 4px 0 #BCAE97;cursor:not-allowed">{{ disabledCtaLabel }}</span>
-          <div style="font:700 13px Nunito;color:#98422F;margin-top:11px">Still needed: {{ missingLabel }}</div>
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:16px 30px;border-radius:999px;background:#DFD3BF;color:#8A7A68;font:600 17px Fredoka,sans-serif;box-shadow:0 4px 0 #BCAE97;cursor:not-allowed">{{ disabledCtaLabel }}</span>
+          <div style="font:700 13px Nunito;color:#B0533A;margin-top:11px">Still needed: {{ missingLabel }}</div>
         </sc-if>
         <sc-if value="{{ hasSubmitError }}" hint-placeholder-val="{{ false }}">
-          <div style="font:700 13px Nunito;color:#98422F;margin-top:12px">Couldn't send ({{ submitErrorLabel }}). <a href="{{ mailtoHref }}" style="color:#1C7085">Send by email instead&nbsp;↗</a></div>
+          <div style="font:700 13px Nunito;color:#B0533A;margin-top:12px">Couldn't send ({{ submitErrorLabel }}). <a href="{{ mailtoHref }}" style="color:#2E9DC2">Send by email instead&nbsp;↗</a></div>
         </sc-if>
         <div style="margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px 20px;flex-wrap:wrap">
           <sc-if value="{{ useFormspree }}" hint-placeholder-val="{{ false }}">
-            <a href="{{ mailtoHref }}" style="font:700 13.5px Nunito;color:#1C7085;text-decoration:underline">Send by email instead&nbsp;↗</a>
+            <a href="{{ mailtoHref }}" style="font:700 13.5px Nunito;color:#2E9DC2;text-decoration:underline">Send by email instead&nbsp;↗</a>
           </sc-if>
-          <button type="button" onClick="{{ onCopy }}" style="background:none;border:none;padding:4px;font:700 13.5px Nunito;color:#1C7085;cursor:pointer;text-decoration:underline">{{ copyLabel }}</button>
+          <button type="button" onClick="{{ onCopy }}" style="background:none;border:none;padding:4px;font:700 13.5px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">{{ copyLabel }}</button>
         </div>
         <sc-if value="{{ useFormspree }}" hint-placeholder-val="{{ false }}">
-          <p style="font:400 13px/1.6 Nunito;color:#695E52;margin:14px auto 0;max-width:540px">Goes straight to the matchmakers at Doenet - no email app needed - so folks with overlapping interests and hours can be matched into pods.</p>
+          <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">Goes straight to the matchmakers at Doenet - no email app needed - so folks with overlapping interests and hours can be matched into pods.</p>
         </sc-if>
         <sc-if value="{{ useMailto }}" hint-placeholder-val="{{ true }}">
-          <p style="font:400 13px/1.6 Nunito;color:#695E52;margin:14px auto 0;max-width:540px">This opens your email app with everything pre-filled - just hit send. It goes to <b>{{ recipientLabel }}</b>, who matches folks with overlapping interests and availability into pods.</p>
+          <p style="font:400 13px/1.6 Nunito;color:#7A6E64;margin:14px auto 0;max-width:540px">This opens your email app with everything pre-filled - just hit send. It goes to <b>{{ recipientLabel }}</b>, who matches folks with overlapping interests and availability into pods.</p>
         </sc-if>
         </sc-if>
         <sc-if value="{{ submittedOk }}" hint-placeholder-val="{{ false }}">
@@ -330,7 +324,7 @@
             <div style="width:52px;height:52px;border-radius:50%;background:#84EAFF;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font:800 26px Nunito;color:#154851">✓</div>
             <div style="font:600 22px Fredoka;color:#2A2320">Signup sent!</div>
             <p style="font:400 14.5px/1.6 Nunito;color:#5F554C;margin:8px 0 0;max-width:380px">Your free times and pod picks are on their way to the matchmakers at Doenet. Watch your inbox for your pod matches.</p>
-            <button type="button" onClick="{{ onEditAgain }}" style="margin-top:14px;background:none;border:none;padding:4px;font:700 13px Nunito;color:#1C7085;cursor:pointer;text-decoration:underline">Change something? Edit &amp; resend</button>
+            <button type="button" onClick="{{ onEditAgain }}" style="margin-top:14px;background:none;border:none;padding:4px;font:700 13px Nunito;color:#2E9DC2;cursor:pointer;text-decoration:underline">Change something? Edit &amp; resend</button>
           </div>
         </sc-if>
       </div>
@@ -369,12 +363,12 @@
           <div style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(18,59,68,.12);border-radius:20px;padding:22px 22px 24px">
             <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
               <span style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle,transparent 32%,#D89A66 33%);flex:none"></span>
-              <span style="font:700 11px Nunito;letter-spacing:.13em;text-transform:uppercase;color:#8A4F22">Anytime</span>
+              <span style="font:700 11px Nunito;letter-spacing:.13em;text-transform:uppercase;color:#9A5A2A">Anytime</span>
             </div>
             <h3 style="font:600 22px Fredoka;color:#17444F;margin:0 0 8px">Community Discussions</h3>
             <p style="font:400 14.5px/1.6 Nunito;color:#4A6A74;margin:0 0 15px">Can't make it live? Post whenever suits you - the community weighs in on its own time.</p>
             <div style="display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px">
-              <span style="display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#F6E7D6;border:1px solid #E2C39B;color:#8A4F22;font:700 12px Nunito;white-space:nowrap">community.doenet.org</span>
+              <span style="display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#F6E7D6;border:1px solid #E2C39B;color:#9A5A2A;font:700 12px Nunito;white-space:nowrap">community.doenet.org</span>
             </div>
             <a href="https://community.doenet.org" target="_blank" rel="noopener" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;background:#D89A66;color:#2E1B0E;font:600 15px Fredoka,sans-serif;text-decoration:none;box-shadow:0 4px 0 #A96E3B" style-hover="transform:translateY(2px);box-shadow:0 2px 0 #A96E3B">Open Community Discussions&nbsp;↗</a>
           </div>
@@ -498,16 +492,6 @@ class Component extends DCLogic {
             el.style.transition = 'opacity .65s cubic-bezier(.22,.61,.36,1) ' + d + ', transform .65s cubic-bezier(.22,.61,.36,1) ' + d;
             el.style.opacity = '1';
             el.style.transform = 'translateY(0px)';
-            // Drop the transform once the entrance animation finishes. A lingering
-            // transform on an ancestor - even the identity translateY(0px) - stops
-            // Safari from opening native <select> popups (e.g. the time-zone
-            // dropdown); Chromium is unaffected. translateY(0) and none render
-            // identically, so removing it causes no visual change.
-            el.addEventListener('transitionend', function te(ev) {
-              if (ev.propertyName !== 'transform') return;
-              el.style.transform = 'none';
-              el.removeEventListener('transitionend', te);
-            });
             this._io.unobserve(el);
           });
         }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
@@ -607,19 +591,7 @@ class Component extends DCLogic {
     ];
     const opts = curated.slice();
     if (!curated.some(z => z[0] === tz)) opts.unshift([tz, tz.replace(/_/g, ' ') + ' (detected)']);
-    const setTz = (id) => this.setState({ tz: id });
-    const tzOptions = opts.map(z => {
-      const sel = z[0] === tz;
-      return {
-        id: z[0],
-        label: z[1],
-        ariaPressed: sel ? 'true' : 'false',
-        bg: sel ? '#6F5140' : '#FBF6EC',
-        bc: sel ? '#6F5140' : 'rgba(42,35,32,.16)',
-        color: sel ? '#FBF3E6' : '#2A2320',
-        onSelect: () => setTz(z[0]),
-      };
-    });
+    const tzOptions = opts.map(z => ({ id: z[0], label: z[1] }));
     const tzFound = opts.find(z => z[0] === tz);
     const tzLabel = tzFound ? tzFound[1] : tz;
 
@@ -681,8 +653,8 @@ class Component extends DCLogic {
       bg: sel ? '#E6F7FC' : '#FBF6EC',
       bc: sel ? '#3FB9DF' : 'rgba(42,35,32,.08)',
       mark: sel ? '✓' : '',
-      markBg: sel ? '#1C7085' : 'transparent',
-      markBc: sel ? '#1C7085' : '#CBBFAD',
+      markBg: sel ? '#2E9DC2' : 'transparent',
+      markBc: sel ? '#2E9DC2' : '#CBBFAD',
       onToggle: () => togglePod(id),
     });
     const proof = podItem('Proofing Room', !!this.state.pods['Proofing Room']);
