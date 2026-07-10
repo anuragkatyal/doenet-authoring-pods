@@ -8,7 +8,7 @@
   /* Accessibility: restore visible keyboard focus indicators (WCAG 2.4.7).
      !important overrides the inline outline:none on the availability-grid cells;
      negative outline-offset keeps the ring inside the grid's overflow:hidden. */
-  [data-slot]:focus-visible{outline:2px solid #1C7085!important;outline-offset:-2px}
+  [data-slot]:focus-visible{outline:2px solid #0E323A!important;outline-offset:-2px}
   button[role="radio"]:focus-visible{outline:2px solid #1C7085;outline-offset:2px}
 </style>
 <script src="./support.js"></script>
@@ -39,7 +39,7 @@
         <a href="#pods" style="color:#2A2320;text-decoration:none">The pods</a>
         <a href="#schedule" style="color:#2A2320;text-decoration:none">Schedule</a>
         <a href="#signup" style="color:#2A2320;text-decoration:none">Sign up</a>
-        <a href="#help" style="color:#2A2320;text-decoration:none">Need help?</a>
+        
         <a href="https://beta.doenet.org" target="_blank" rel="noopener" style="color:#1C7085;text-decoration:none">Back to Doenet↗</a>
       </div>
       </sc-if>
@@ -63,7 +63,7 @@
         <a href="#pods" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">The pods</a>
         <a href="#schedule" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">Schedule</a>
         <a href="#signup" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">Sign up</a>
-        <a href="#help" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#2A2320;text-decoration:none;font:700 15px Nunito;border-bottom:1px solid rgba(42,35,32,.07)">Need help?</a>
+        
         <a href="https://beta.doenet.org" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="display:block;padding:14px 2px;color:#1C7085;text-decoration:none;font:700 15px Nunito">Back to beta.doenet.org&nbsp;↗</a>
       </div>
       </sc-if>
@@ -175,7 +175,7 @@
               <div style="background:#fff;border-radius:14px;padding:13px 16px;border:1px solid rgba(42,35,32,.07)">
                 <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
                   <div style="font:700 14.5px Nunito;color:#2A2320"><span>{{ k.day }}</span> · <span style="color:#5F554C;font-weight:600">{{ k.timeLabel }}</span></div>
-                  <div style="display:flex;align-items:center;gap:6px;flex:none"><sc-if value="{{ k.full }}" hint-placeholder-val="{{ false }}"><span style="padding:4px 10px;border-radius:999px;background:#EDE4D6;color:#5F5443;font:700 10px Nunito;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Full</span></sc-if><sc-if value="{{ k.hasFocus }}" hint-placeholder-val="{{ true }}"><span style="padding:4px 10px;border-radius:999px;background:#F6E7D6;color:#8A4F22;font:700 11px Nunito;white-space:nowrap">{{ k.focus }}</span></sc-if></div>
+                  <div style="display:flex;align-items:center;gap:6px;flex:none"><sc-if value="{{ k.hasSeats }}" hint-placeholder-val="{{ false }}"><a href="#signup" style="display:inline-flex;align-items:center;gap:6px;padding:3px 11px;border-radius:999px;background:#F6E7D6;border:1.5px dashed #D89A66;color:#8A4F22;font:700 10px Nunito;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;text-decoration:none" style-hover="background:#F2DCC2"><span style="width:9px;height:9px;border-radius:50%;border:1.5px dashed #C07E3F;flex:none"></span>{{ k.seatsLabel }}</a></sc-if><sc-if value="{{ k.full }}" hint-placeholder-val="{{ false }}"><span style="padding:4px 10px;border-radius:999px;background:#EDE4D6;color:#5F5443;font:700 10px Nunito;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap">Full</span></sc-if><sc-if value="{{ k.hasFocus }}" hint-placeholder-val="{{ true }}"><span style="padding:4px 10px;border-radius:999px;background:#F6E7D6;color:#8A4F22;font:700 11px Nunito;white-space:nowrap">{{ k.focus }}</span></sc-if></div>
                 </div>
                 <div style="font:400 12.5px Nunito;color:#695E52;margin-top:3px">{{ k.members }}</div>
               </div>
@@ -197,7 +197,7 @@
       <div data-reveal="" style="background:#fff;border:1px solid rgba(42,35,32,.08);border-radius:20px;padding:22px clamp(16px,3.5vw,26px) 24px;box-shadow:0 14px 34px -22px rgba(42,35,32,.5)">
         <div style="display:flex;align-items:center;gap:13px">
           <span style="flex:none;width:32px;height:32px;border-radius:50%;background:#6F5140;color:#FBF3E6;display:flex;align-items:center;justify-content:center;font:600 16px Fredoka,sans-serif">1</span>
-          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">Your time zone</h3>
+          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">What time zone are you in?</h3>
         </div>
         <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">Auto-detected from your device - fix it if we guessed wrong. The grid below will speak your local clock.</p>
         <div role="radiogroup" aria-label="Your time zone" style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
@@ -209,13 +209,15 @@
       <div data-reveal="" style="margin-top:18px;background:#fff;border:1px solid rgba(42,35,32,.08);border-radius:20px;padding:22px clamp(16px,3.5vw,26px) 26px;box-shadow:0 14px 34px -22px rgba(42,35,32,.5)">
         <div style="display:flex;align-items:center;gap:13px">
           <span style="flex:none;width:32px;height:32px;border-radius:50%;background:#6F5140;color:#FBF3E6;display:flex;align-items:center;justify-content:center;font:600 16px Fredoka,sans-serif">2</span>
-          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">Paint the times you're free</h3>
+          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">When are you free?</h3>
         </div>
-        <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">Think of a typical week. The grid runs <b>{{ etRangeLabel }} Eastern</b> in half-hour steps - labels are shown in your local time. Click and drag with a mouse to paint a stretch; on a touchscreen, tap slots one at a time.</p>
+        <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">Think of a typical week. The grid runs <b>{{ etRangeLabel }} Eastern</b> in half-hour steps - labels are shown in your local time. Click and drag with a mouse to paint a stretch; on a touchscreen, tap slots one at a time. Striped slots show where a proofing room or Doenet office hours already meet - <b>they're not blocked off</b>, so pick them too if you're free then.</p>
         <div style="max-width:680px;margin:0 auto">
           <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px">
             <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:#fff;border:1.5px solid rgba(42,35,32,.28)"></span>Busy</span>
-            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:#3FBFE4;border:1.5px solid #3FBFE4"></span>I'm free</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:#2999BE;border:1.5px solid #2999BE"></span>I'm free</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:repeating-linear-gradient(135deg,#D4F1F9 0 3px,#fff 3px 7px);border:1.5px solid rgba(42,35,32,.18)"></span>Proofing room meets here</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:repeating-linear-gradient(135deg,#EADFC9 0 3px,#fff 3px 7px);border:1.5px solid rgba(42,35,32,.18)"></span>Doenet office hours</span>
             <span style="flex:1"></span>
             
             <button type="button" onClick="{{ clearSlots }}" style="background:none;border:none;padding:4px 2px;font:700 13px Nunito;color:#1C7085;cursor:pointer;text-decoration:underline">Clear all</button>
@@ -233,7 +235,7 @@
                   <span style="font:700 11.5px Nunito;color:#2A2320;white-space:nowrap">{{ row.hourLabel }}</span><span style="font:600 10.5px Nunito;color:#736759;white-space:nowrap">{{ row.halfLabel }}</span>
                 </div>
                 <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="5">
-                  <button type="button" data-slot="{{ c.key }}" aria-label="{{ c.aria }}" aria-pressed="{{ c.ariaPressed }}" style="flex:1 1 0;min-width:0;height:29px;margin:0;padding:0;border:none;outline:none;border-left:1px solid rgba(42,35,32,.1);border-top:1px solid rgba(42,35,32,.07);cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent;background:{{ c.bg }}" style-hover="filter:brightness(.92)"></button>
+                  <button type="button" data-slot="{{ c.key }}" aria-label="{{ c.aria }}" aria-pressed="{{ c.ariaPressed }}" style="flex:1 1 0;min-width:0;height:29px;margin:0;padding:0;border:none;outline:none;border-left:1px solid rgba(42,35,32,.1);border-top:1px solid rgba(42,35,32,.07);cursor:pointer;touch-action:pan-y;-webkit-tap-highlight-color:transparent;background:{{ c.bg }}" style-hover="filter:brightness(.92)"><span aria-hidden="true" style="pointer-events:none;display:inline-block;max-width:100%;padding:0 2px;font:700 9px/1.15 Nunito;letter-spacing:.02em;color:{{ c.tagColor }};overflow:hidden">{{ c.tag }}</span></button>
                 </sc-for>
               </div>
             </sc-for>
@@ -248,23 +250,11 @@
       <div data-reveal="" style="margin-top:18px;background:#fff;border:1px solid rgba(42,35,32,.08);border-radius:20px;padding:22px clamp(16px,3.5vw,26px) 26px;box-shadow:0 14px 34px -22px rgba(42,35,32,.5)">
         <div style="display:flex;align-items:center;gap:13px">
           <span style="flex:none;width:32px;height:32px;border-radius:50%;background:#6F5140;color:#FBF3E6;display:flex;align-items:center;justify-content:center;font:600 16px Fredoka,sans-serif">3</span>
-          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">Pick your pods</h3>
+          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">What pods are you interested in?</h3>
         </div>
-        <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px"><b>Select as many as you like</b> - you'll be matched separately for each one you tick.</p>
-        <button type="button" onClick="{{ proof.onToggle }}" aria-pressed="{{ proof.ariaPressed }}" style="display:flex;align-items:center;gap:14px;width:100%;box-sizing:border-box;text-align:left;border-radius:16px;padding:13px 16px;cursor:pointer;background:{{ proof.bg }};border:2px solid {{ proof.bc }}" style-hover="transform:translateY(-1px)">
-          <span style="width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,transparent 34%,#84EAFF 35%);flex:none"></span>
-          <span style="flex:1;min-width:0">
-            <span style="display:block;font:800 15.5px Nunito;color:#2A2320">Proofing Room</span>
-            <span style="display:block;font:600 12.5px Nunito;color:#5F554C;margin-top:1px">Silent co-working - one pool, not topic-specific</span>
-          </span>
-          <span style="flex:none;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:800 13px Nunito;color:#fff;border:2px solid {{ proof.markBc }};background:{{ proof.markBg }}">{{ proof.mark }}</span>
-        </button>
-        <div style="display:flex;align-items:center;gap:10px;margin:18px 0 10px">
-          <span style="width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,transparent 33%,#D89A66 34%);flex:none"></span>
-          <span style="font:700 11.5px Nunito;letter-spacing:.12em;text-transform:uppercase;color:#8A4F22">Test Kitchens · by topic</span>
-        </div>
+        <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px"><b>Select as many as you like.</b></p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px">
-          <sc-for list="{{ podTopics }}" as="p" hint-placeholder-count="13">
+          <sc-for list="{{ podTopics }}" as="p" hint-placeholder-count="14">
             <button type="button" onClick="{{ p.onToggle }}" aria-pressed="{{ p.ariaPressed }}" style="display:flex;align-items:center;gap:12px;text-align:left;border-radius:14px;padding:11px 14px;cursor:pointer;background:{{ p.bg }};border:2px solid {{ p.bc }}" style-hover="transform:translateY(-1px)">
               <span style="flex:1;min-width:0">
                 <span style="display:block;font:700 14px/1.35 Nunito;color:#2A2320">{{ p.name }}</span>
@@ -335,51 +325,6 @@
         </sc-if>
       </div>
 
-    </div>
-  </div>
-
-  <div id="help" data-screen-label="Need help" style="scroll-margin-top:20px;padding:clamp(22px,5vw,40px) clamp(20px,5vw,32px) clamp(44px,7vw,60px);background:#FBF3E6">
-    <div data-reveal="" style="position:relative;overflow:hidden;max-width:960px;margin:0 auto;background:#E3F6FC;border:1px solid rgba(18,59,68,.12);border-radius:28px;padding:clamp(28px,5vw,46px);box-shadow:0 24px 50px -32px rgba(18,59,68,.4)">
-      <div data-plx-drift="36" style="position:absolute;top:-46px;right:-34px;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,transparent 62%,rgba(63,191,228,.25) 63%)"></div>
-      <div data-plx-drift="-28" style="position:absolute;bottom:-58px;left:-30px;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,transparent 64%,rgba(216,154,102,.28) 65%)"></div>
-      <div style="position:relative">
-        <div style="display:flex;align-items:center;gap:11px;margin-bottom:13px">
-          <span style="display:inline-flex;gap:5px;flex:none">
-            <span style="width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,transparent 33%,#84EAFF 34%)"></span>
-            <span style="width:15px;height:15px;border-radius:50%;background:radial-gradient(circle,transparent 33%,#D89A66 34%)"></span>
-          </span>
-          <span style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#2A6A7D">Technical questions · DoenetML</span>
-        </div>
-        <h2 style="font:600 38px Fredoka,sans-serif;color:#17444F;margin:0 0 10px;letter-spacing:-.01em;font-size:clamp(28px,6vw,38px)">Need help?</h2>
-        <p style="font:400 17px/1.6 Nunito;color:#3D6672;margin:0 0 26px;max-width:560px;font-size:clamp(15.5px,2.3vw,17px)">Get unstuck with DoenetML - hop into a live session, or start a thread the community answers on its own time.</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:18px">
-          <div style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(18,59,68,.12);border-radius:20px;padding:22px 22px 24px">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
-              <span style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle,transparent 32%,#84EAFF 33%);flex:none"></span>
-              <span style="font:700 11px Nunito;letter-spacing:.13em;text-transform:uppercase;color:#2A6A7D">Live</span>
-            </div>
-            <h3 style="font:600 22px Fredoka;color:#17444F;margin:0 0 8px">Doenet Office Hours</h3>
-            <p style="font:400 14.5px/1.6 Nunito;color:#4A6A74;margin:0 0 15px">Drop in with specific DoenetML questions - or just work alongside others when it's quiet.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px">
-              <span style="display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#D8F3FB;border:1px solid #A7E2F2;color:#17505E;font:700 12px Nunito;white-space:nowrap">Tuesdays · 2:00–4:00 PM ET</span>
-              <span style="display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#D8F3FB;border:1px solid #A7E2F2;color:#17505E;font:700 12px Nunito;white-space:nowrap">On Zoom · drop in</span>
-            </div>
-            <div style="margin-top:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap"><a href="http://mathtech.org/dropin" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;background:#84EAFF;color:#0E323A;font:600 15px Fredoka,sans-serif;text-decoration:none;box-shadow:0 4px 0 #44B2D4" style-hover="transform:translateY(2px);box-shadow:0 2px 0 #44B2D4">Join on Zoom&nbsp;↗</a><a href="{{ officeHoursCalHref }}" download="{{ officeHoursCalName }}" onClick="{{ officeHoursOnCal }}" title="Add to calendar (.ics)" aria-label="Download Office Hours calendar invite" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:999px;background:#D8F3FB;border:1px solid #A7E2F2;color:#2A6A7D;text-decoration:none;cursor:pointer" style-hover="background:#C2ECF8;color:#17444F"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M12 14v4"></path><path d="M10 16h4"></path></svg></a></div>
-          </div>
-          <div style="display:flex;flex-direction:column;background:#fff;border:1px solid rgba(18,59,68,.12);border-radius:20px;padding:22px 22px 24px">
-            <div style="display:flex;align-items:center;gap:9px;margin-bottom:11px">
-              <span style="width:13px;height:13px;border-radius:50%;background:radial-gradient(circle,transparent 32%,#D89A66 33%);flex:none"></span>
-              <span style="font:700 11px Nunito;letter-spacing:.13em;text-transform:uppercase;color:#8A4F22">Anytime</span>
-            </div>
-            <h3 style="font:600 22px Fredoka;color:#17444F;margin:0 0 8px">Community Discussions</h3>
-            <p style="font:400 14.5px/1.6 Nunito;color:#4A6A74;margin:0 0 15px">Can't make it live? Post whenever suits you - the community weighs in on its own time.</p>
-            <div style="display:flex;flex-wrap:wrap;gap:7px;margin:0 0 20px">
-              <span style="display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#F6E7D6;border:1px solid #E2C39B;color:#8A4F22;font:700 12px Nunito;white-space:nowrap">community.doenet.org</span>
-            </div>
-            <a href="https://community.doenet.org" target="_blank" rel="noopener" style="margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;background:#D89A66;color:#2E1B0E;font:600 15px Fredoka,sans-serif;text-decoration:none;box-shadow:0 4px 0 #A96E3B" style-hover="transform:translateY(2px);box-shadow:0 2px 0 #A96E3B">Open Community Discussions&nbsp;↗</a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -632,6 +577,22 @@ class Component extends DCLogic {
     }
 
     let anyWrapped = false;
+    // existing proofing rooms, shown faintly in the grid (ET minutes)
+    const proofRoomsRaw = [
+      { day: 'Mondays', time: '1:00 PM - 2:30 PM ET', members: 'Hosted by Anurag Katyal', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 13, startM: 0, endH: 14, endM: 30, open: false },
+      { day: 'Tuesdays', time: '12:30 PM - 1:30 PM ET', members: 'Hosted by Aishwarya Ravi', hostMail: 'ravia@pbsc.edu', hostUrl: 'https://teams.microsoft.com/meet/258260069385425?p=uMfqJPVnYHtSUXXzWT', startH: 12, startM: 30, endH: 13, endM: 30, open: false },
+      { day: 'Wednesdays', time: '1:00 PM - 2:30 PM ET', members: 'Hosted by Carrie McDonald', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 13, startM: 0, endH: 14, endM: 30, open: false },
+      { day: 'Thursdays', time: '12:30 PM - 1:30 PM ET', members: 'Hosted by Aishwarya Ravi', hostMail: 'ravia@pbsc.edu', hostUrl: 'https://teams.microsoft.com/meet/258260069385425?p=uMfqJPVnYHtSUXXzWT', startH: 12, startM: 30, endH: 13, endM: 30, open: false },
+    ];
+    const sessionsByDay = {};
+    proofRoomsRaw.forEach(r => { if (typeof r.startH === 'number') { const d3 = r.day.slice(0, 3); (sessionsByDay[d3] = sessionsByDay[d3] || []).push([r.startH * 60 + r.startM, r.endH * 60 + r.endM]); } });
+    const podMeets = (d, m) => (sessionsByDay[d] || []).some(rg => m >= rg[0] && m < rg[1]);
+
+    // Doenet office hours, shown faintly in a warm stripe (ET minutes)
+    const officeByDay = { Tue: [[14 * 60, 16 * 60]] };
+    const officeMeets = (d, m) => (officeByDay[d] || []).some(rg => m >= rg[0] && m < rg[1]);
+    const officeStarts = (d, m) => (officeByDay[d] || []).some(rg => rg[0] >= m && rg[0] < m + 30);
+
     const gridRows = [];
     for (let m = startHour * 60; m < endHour * 60; m += 30) {
       const lm = m + diff;
@@ -647,10 +608,17 @@ class Component extends DCLogic {
         cells: days.map(d => {
           const k = d + '-' + m;
           const sel = !!this.state.slots[k];
+          const meets = podMeets(d, m);
+          const startsHere = (sessionsByDay[d] || []).some(rg => rg[0] >= m && rg[0] < m + 30);
+          const office = officeMeets(d, m);
           return {
             key: k,
-            bg: sel ? '#3FBFE4' : '#FFFFFF',
-            aria: d + ' ' + lbl + ' - ' + (sel ? 'free' : 'busy'),
+            bg: sel
+              ? ((meets || office) ? 'repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 3px,transparent 3px 7px), #2999BE' : '#2999BE')
+              : (meets ? 'repeating-linear-gradient(135deg,#D4F1F9 0 3px,#FFFFFF 3px 7px)' : (office ? 'repeating-linear-gradient(135deg,#EADFC9 0 3px,#FFFFFF 3px 7px)' : '#FFFFFF')),
+            tag: !sel ? (startsHere ? 'Proofing Room' : (officeStarts(d, m) ? 'Office Hours' : '')) : '',
+            tagColor: startsHere ? '#17505E' : '#8A4F22',
+            aria: d + ' ' + lbl + ' - ' + (sel ? 'free' : 'busy') + (meets ? ' (a proofing room already meets at this time - you can still pick it)' : (office ? ' (Doenet office hours meet at this time - you can still pick it)' : '')),
             ariaPressed: sel ? 'true' : 'false',
           };
         }),
@@ -664,7 +632,7 @@ class Component extends DCLogic {
       { name: 'Developmental Math / Intermediate Algebra / Algebra 1', lead: 'Anurag Katyal' },
       { name: 'Geometry', lead: '' },
       { name: 'College Algebra / Algebra 2', lead: 'Mike Weimerskirch' },
-      { name: 'Precalculus & Trigonometry', lead: 'Mike Weimerskirch' },
+      { name: 'Precalc & Trig', lead: 'Mike Weimerskirch' },
       { name: 'Calculus (non–trig-based)', lead: '' },
       { name: 'Calculus 1 & 2 (trig-based)', lead: '' },
       { name: 'Differential Equations & Linear Algebra', lead: '' },
@@ -685,11 +653,12 @@ class Component extends DCLogic {
       markBc: sel ? '#1C7085' : '#CBBFAD',
       onToggle: () => togglePod(id),
     });
-    const proof = podItem('Proofing Room', !!this.state.pods['Proofing Room']);
-    const podTopics = topics.map(t => {
+    const podTopics = [
+      { name: 'Proofing Room', leadLabel: 'Silent co-working - not topic-specific', ...podItem('Proofing Room', !!this.state.pods['Proofing Room']) },
+    ].concat(topics.map(t => {
       const id = 'TK|' + t.name;
       return { name: t.name, leadLabel: t.lead ? ('Lead · ' + t.lead) : '', ...podItem(id, !!this.state.pods[id]) };
-    });
+    }));
     const podNames = [];
     if (this.state.pods['Proofing Room']) podNames.push('Proofing Room');
     topics.forEach(t => { if (this.state.pods['TK|' + t.name]) podNames.push('Test Kitchen: ' + t.name); });
@@ -825,23 +794,17 @@ class Component extends DCLogic {
         setTimeout(() => URL.revokeObjectURL(url), 1500);
       } catch (err) { window.open('data:text/calendar;charset=utf-8,' + encodeURIComponent(text)); }
     };
-    const proofRooms = [
-      { day: 'Mondays', time: '1:00 PM - 2:30 PM ET', members: 'Hosted by Anurag Katyal (anurag@whyoverhow.com)', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 13, startM: 0, endH: 14, endM: 30, open: false },
-      { day: 'Tuesdays', time: '12:30 PM - 1:30 PM ET', members: 'Hosted by Aishwarya Ravi (ravia@pbsc.edu)', hostMail: 'ravia@pbsc.edu', hostUrl: 'https://teams.microsoft.com/meet/258260069385425?p=uMfqJPVnYHtSUXXzWT', startH: 12, startM: 30, endH: 13, endM: 30, open: false },
-      { day: 'Wednesdays', time: '1:00 PM - 2:30 PM ET', members: 'Hosted by Anurag Katyal (anurag@whyoverhow.com)', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 13, startM: 0, endH: 14, endM: 30, open: false },
-      { day: 'Thursdays', time: '12:30 PM - 1:30 PM ET', members: 'Hosted by Aishwarya Ravi (ravia@pbsc.edu)', hostMail: 'ravia@pbsc.edu', hostUrl: 'https://teams.microsoft.com/meet/258260069385425?p=uMfqJPVnYHtSUXXzWT', startH: 12, startM: 30, endH: 13, endM: 30, open: false },
-      { day: 'Fridays', time: 'Time TBD', members: 'Open - suggest a time that works', open: true },
-    ].map(r => {
+    const proofRooms = proofRoomsRaw.map(r => {
       const icsText = buildIcs(r);
       const calName = 'Doenet Proofing Room - ' + r.day + '.ics';
       return { ...r, hasMail: !!r.hostMail, noMail: !r.hostMail, hostMailto: r.hostMail ? ('mailto:' + r.hostMail) : '', isTeams: !!(r.hostUrl && r.hostUrl.indexOf('teams.') !== -1), isZoom: !!(r.hostUrl && r.hostUrl.indexOf('teams.') === -1), hasCal: !!icsText, calName, calHref: icsText ? ('data:text/calendar;charset=utf-8,' + encodeURIComponent(icsText)) : '', onCal: icsText ? downloadIcs(calName, icsText) : null };
     });
     const testKitchens = [
       { day: 'Tuesdays', time: '4:00 PM ET', focus: 'Calculus', members: 'Jinsook · Kris · Nick', full: true },
-      { day: 'Wednesdays', time: '3:00 PM ET', focus: 'Quantitative Reasoning', members: 'Jinsook · Mary' },
+      { day: 'Wednesdays', time: '3:00 PM ET', focus: 'Quantitative Reasoning', members: 'Jinsook · Mary', seatsOpen: 1 },
       { day: 'Thursdays', time: '10:00 AM ET', focus: 'Mixed Topics', members: 'Anurag · Carly · Carrie · Megan', full: true },
-      { day: 'Thursdays', time: '4:00 PM ET', focus: 'Precalculus & Trigonometry', members: 'Mike · Nick' },
-    ].map(k => ({ ...k, timeLabel: k.time || 'Time TBD', hasFocus: !!k.focus && k.focus !== 'General', full: !!k.full }));
+      { day: 'Thursdays', time: '4:00 PM ET', focus: 'Precalc & Trig', members: 'Aishwarya · Jinsook · Mike · Nick', full: true },
+    ].map(k => ({ ...k, timeLabel: k.time || 'Time TBD', hasFocus: !!k.focus && k.focus !== 'General', full: !!k.full, hasSeats: !!k.seatsOpen, seatsLabel: 'Open', members: k.seatsOpen ? k.members + ' · room for one more' : k.members }));
     const officeHoursIcs = buildIcs({ day: 'Tuesdays', startH: 14, startM: 0, endH: 16, endM: 0, hostUrl: 'http://mathtech.org/dropin' }, { summary: 'Doenet Office Hours', uidPrefix: 'doenet-office-hours-tuesdays', description: 'Doenet Office Hours - drop-in help with DoenetML. Bring specific questions or just work alongside others. Join: http://mathtech.org/dropin' });
     const officeHoursCalName = 'Doenet Office Hours - Tuesdays.ics';
 
@@ -868,7 +831,6 @@ class Component extends DCLogic {
       anyWrapped,
       slotSummary: slotCount + ' × 30 min selected',
       clearSlots: () => this.setState({ slots: {} }),
-      proof,
       podTopics,
       nameVal: this.state.name,
       emailVal: this.state.email,
