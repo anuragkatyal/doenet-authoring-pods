@@ -78,9 +78,8 @@
       <div style="font:700 12.5px Nunito;letter-spacing:.18em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Curriculum Group · Author Pods</div>
       <h1 style="font:600 48px/1.04 Fredoka,sans-serif;color:#2A2320;margin:0 0 10px;letter-spacing:-.01em;font-size:clamp(31px,7.5vw,48px)">Bake better activities, together.</h1>
       <p style="font:400 18px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:520px">Pods of authors meeting online to help each other build Doenet activities.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        
-        
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px">
+        <a href="#signup" style="display:inline-flex;align-items:center;gap:9px;padding:11px 20px;border-radius:999px;background:#84EAFF;color:#154851;font:700 14.5px Nunito;text-decoration:none" style-hover="background:#6FE0F7"><span style="width:9px;height:9px;border-radius:50%;background:#154851;flex:none"></span>Fall semester sign-ups are open</a>
       </div>
     </div>
   </div><div id="pods" data-screen-label="The pods" style="scroll-margin-top:20px;padding:clamp(40px,6.5vw,54px) clamp(20px,5vw,32px);background:#F2E6D1">
@@ -144,9 +143,9 @@
   <div id="schedule" data-screen-label="Schedule" style="scroll-margin-top:20px;padding:clamp(40px,6.5vw,54px) clamp(20px,5vw,32px);background:#FBF3E6">
     <div style="max-width:960px;margin:0 auto">
       <div data-reveal="" style="text-align:center">
-        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Already rising</div>
+        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Fall term · already rising</div>
         <h2 style="font:600 34px Fredoka;color:#2A2320;margin:0 0 11px;font-size:clamp(26px,6vw,34px)">Pods meeting now</h2>
-        <p style="font:400 17px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:540px">Hop into one that's already on the calendar, or sign up below to start a fresh batch.</p>
+        <p style="font:400 17px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:540px">These pods carry into the fall term. Hop into one with an open seat, or sign up below and we'll build a fresh batch around your semester schedule.</p>
       </div>
       <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px;margin-top:30px">
         <div>
@@ -183,15 +182,52 @@
           </div>
         </div>
       </div>
+
+      <div data-reveal="" style="margin-top:26px;background:#fff;border-radius:18px;border:1px solid rgba(42,35,32,.07);padding:20px clamp(16px,3vw,24px) 22px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:6px 14px;flex-wrap:wrap;margin-bottom:15px">
+          <h4 style="display:flex;align-items:center;gap:9px;font:600 18px Fredoka;color:#2A2320;margin:0"><span style="width:17px;height:17px;border-radius:50%;background:radial-gradient(circle,transparent 33%,#D8C8AA 34%);flex:none"></span>Doenet-wide meetings</h4>
+          <span style="font:400 13px Nunito;color:#695E52">Open to every author - no pod required.</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px">
+          <sc-for list="{{ standingMeetings }}" as="s" hint-placeholder-count="3">
+            <div style="background:#FBF6EC;border-radius:14px;padding:13px 15px 14px;border:1px solid rgba(42,35,32,.07);display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
+                <div>
+                  <div style="font:700 14.5px Nunito;color:#2A2320">{{ s.name }}</div>
+                  <div style="font:600 12.5px Nunito;color:#5F554C;margin-top:2px">{{ s.dayTime }}</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:7px;flex:none">
+                  <sc-if value="{{ s.hasCal }}" hint-placeholder-val="{{ true }}"><a href="{{ s.calHref }}" download="{{ s.calName }}" onClick="{{ s.onCal }}" title="Add to calendar (.ics)" aria-label="Download calendar invite" style="flex:none;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:999px;background:#F4ECDD;border:1px solid rgba(42,35,32,.1);color:#695E52;text-decoration:none;cursor:pointer" style-hover="background:#EADFC9;color:#2A2320"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M12 14v4"></path><path d="M10 16h4"></path></svg></a></sc-if>
+                  <sc-if value="{{ s.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ s.hostUrl }}" target="_blank" rel="noopener" style="flex:none;display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;background:#EADFC9;color:#5A4227;font:700 11.5px Nunito;text-decoration:none;white-space:nowrap" style-hover="background:#DFD0B4">Join&nbsp;↗</a></sc-if>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                <sc-if value="{{ s.isWeekly }}" hint-placeholder-val="{{ true }}"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:#fff;border:1px solid rgba(42,35,32,.14);font:700 11px Nunito;color:#5F554C"><span style="width:11px;height:11px;border-radius:3px;background:repeating-linear-gradient(135deg,#D8C08E 0 3px,#fff 3px 5px);border:1px solid rgba(42,35,32,.18);flex:none"></span>{{ s.cadence }}</span></sc-if>
+                <sc-if value="{{ s.isBiweekly }}" hint-placeholder-val="{{ false }}"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:#fff;border:1px solid rgba(42,35,32,.14);font:700 11px Nunito;color:#5F554C"><span style="width:11px;height:11px;border-radius:3px;background:repeating-linear-gradient(135deg,#D8C08E 0 3px,#fff 3px 9px);border:1px solid rgba(42,35,32,.18);flex:none"></span>{{ s.cadence }}</span></sc-if>
+              </div>
+              <sc-if value="{{ s.isBiweekly }}" hint-placeholder-val="{{ false }}"><div style="font:700 12px Nunito;color:#8A4F22">{{ s.nextLabel }}</div></sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="signup" data-screen-label="Sign up" style="scroll-margin-top:20px;padding:clamp(40px,6.5vw,54px) clamp(20px,5vw,32px);background:#F2E6D1">
     <div style="max-width:960px;margin:0 auto">
       <div data-reveal="" style="text-align:center;margin-bottom:30px">
-        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Sign up · Summer 2026</div>
+        <div style="font:700 12.5px Nunito;letter-spacing:.16em;text-transform:uppercase;color:#8A4F22;margin-bottom:10px">Sign up · Fall 2026</div>
         <h2 style="font:600 34px Fredoka;color:#2A2320;margin:0 0 11px;font-size:clamp(26px,6vw,34px)">Tell us when you're free</h2>
         <p style="font:400 17px/1.6 Nunito;color:#5F554C;margin:0 auto;max-width:620px">Four quick steps - your time zone, your free times, your pods, your name. We'll match you with authors who share your interests and your hours. Pods meet online - Zoom, Meet, or Teams, each pod's pick.</p>
+      </div>
+
+      <div data-reveal="" style="background:#fff;border:1px solid rgba(42,35,32,.08);border-radius:20px;overflow:hidden;box-shadow:0 14px 34px -22px rgba(42,35,32,.5);margin-bottom:18px">
+        <div style="height:9px;background:#84EAFF"></div>
+        <div style="padding:22px clamp(16px,3.5vw,26px) 24px">
+          <div style="font:700 11px Nunito;letter-spacing:.14em;text-transform:uppercase;color:#2A6A7D;margin-bottom:7px">New semester</div>
+          <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0 0 9px">Fall pods are being formed now</h3>
+          <p style="font:400 14.5px/1.6 Nunito;color:#5F554C;margin:0">Everyone signs up again for fall - including authors who were in a pod over the summer - because teaching schedules have shifted. Send us your fall availability below and we'll rebuild the pods around the new term.</p>
+        </div>
       </div>
 
       <div data-reveal="" style="background:#fff;border:1px solid rgba(42,35,32,.08);border-radius:20px;padding:22px clamp(16px,3.5vw,26px) 24px;box-shadow:0 14px 34px -22px rgba(42,35,32,.5)">
@@ -211,13 +247,14 @@
           <span style="flex:none;width:32px;height:32px;border-radius:50%;background:#6F5140;color:#FBF3E6;display:flex;align-items:center;justify-content:center;font:600 16px Fredoka,sans-serif">2</span>
           <h3 style="font:600 21px Fredoka;color:#2A2320;margin:0">When are you free?</h3>
         </div>
-        <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">Think of a typical week. The grid runs <b>{{ etRangeLabel }} Eastern</b> in half-hour steps - labels are shown in your local time. Click and drag with a mouse to paint a stretch; on a touchscreen, tap slots one at a time. Striped slots show where a proofing room or Doenet office hours already meet - <b>they're not blocked off</b>, so pick them too if you're free then.</p>
+        <p style="font:400 14.5px/1.55 Nunito;color:#5F554C;margin:8px 0 14px">Think of a typical week in your fall term. The grid runs <b>{{ etRangeLabel }} Eastern</b> in half-hour steps - labels are shown in your local time. Click and drag with a mouse to paint a stretch; on a touchscreen, tap slots one at a time. Striped slots show where a proofing room or a Doenet-wide meeting already meets - the widely spaced stripes are the every-other-week Community Feedback call. <b>None of them are blocked off</b>, so pick them too if you're free then.</p>
         <div style="max-width:680px;margin:0 auto">
           <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px">
             <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:#fff;border:1.5px solid rgba(42,35,32,.28)"></span>Busy</span>
             <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:#2999BE;border:1.5px solid #2999BE"></span>I'm free</span>
             <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:repeating-linear-gradient(135deg,#D4F1F9 0 3px,#fff 3px 7px);border:1.5px solid rgba(42,35,32,.18)"></span>Proofing room meets here</span>
-            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:repeating-linear-gradient(135deg,#EADFC9 0 3px,#fff 3px 7px);border:1.5px solid rgba(42,35,32,.18)"></span>Doenet office hours</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:repeating-linear-gradient(135deg,#D8C08E 0 3px,#fff 3px 7px);border:1.5px solid rgba(42,35,32,.18)"></span>Doenet meeting, weekly</span>
+            <span style="display:inline-flex;align-items:center;gap:7px;font:600 12.5px Nunito;color:#5F554C"><span style="width:15px;height:15px;border-radius:4px;background:repeating-linear-gradient(135deg,#D8C08E 0 3px,#fff 3px 9px);border:1.5px solid rgba(42,35,32,.18)"></span>Meets every other week</span>
             <span style="flex:1"></span>
             
             <button type="button" onClick="{{ clearSlots }}" style="background:none;border:none;padding:4px 2px;font:700 13px Nunito;color:#1C7085;cursor:pointer;text-decoration:underline">Clear all</button>
@@ -579,19 +616,26 @@ class Component extends DCLogic {
     let anyWrapped = false;
     // existing proofing rooms, shown faintly in the grid (ET minutes)
     const proofRoomsRaw = [
-      { day: 'Mondays', time: '1:00 PM - 2:30 PM ET', members: 'Hosted by Anurag Katyal', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 13, startM: 0, endH: 14, endM: 30, open: false },
+      { day: 'Mondays', time: '2:00 PM - 3:00 PM ET', members: 'Hosted by Anurag Katyal', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 14, startM: 0, endH: 15, endM: 0, open: false },
       { day: 'Tuesdays', time: '12:30 PM - 1:30 PM ET', members: 'Hosted by Aishwarya Ravi', hostMail: 'ravia@pbsc.edu', hostUrl: 'https://teams.microsoft.com/meet/258260069385425?p=uMfqJPVnYHtSUXXzWT', startH: 12, startM: 30, endH: 13, endM: 30, open: false },
-      { day: 'Wednesdays', time: '1:00 PM - 2:30 PM ET', members: 'Hosted by Carrie McDonald', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 13, startM: 0, endH: 14, endM: 30, open: false },
+      { day: 'Wednesdays', time: '2:00 PM - 3:00 PM ET', members: 'Hosted by Anurag Katyal', hostMail: 'anurag@whyoverhow.com', hostUrl: 'http://zoom.doenet.org', startH: 14, startM: 0, endH: 15, endM: 0, open: false },
       { day: 'Thursdays', time: '12:30 PM - 1:30 PM ET', members: 'Hosted by Aishwarya Ravi', hostMail: 'ravia@pbsc.edu', hostUrl: 'https://teams.microsoft.com/meet/258260069385425?p=uMfqJPVnYHtSUXXzWT', startH: 12, startM: 30, endH: 13, endM: 30, open: false },
     ];
     const sessionsByDay = {};
     proofRoomsRaw.forEach(r => { if (typeof r.startH === 'number') { const d3 = r.day.slice(0, 3); (sessionsByDay[d3] = sessionsByDay[d3] || []).push([r.startH * 60 + r.startM, r.endH * 60 + r.endM]); } });
     const podMeets = (d, m) => (sessionsByDay[d] || []).some(rg => m >= rg[0] && m < rg[1]);
 
-    // Doenet office hours, shown faintly in a warm stripe (ET minutes)
-    const officeByDay = { Tue: [[14 * 60, 16 * 60]] };
-    const officeMeets = (d, m) => (officeByDay[d] || []).some(rg => m >= rg[0] && m < rg[1]);
-    const officeStarts = (d, m) => (officeByDay[d] || []).some(rg => rg[0] >= m && rg[0] < m + 30);
+    // Doenet-wide standing meetings, shown faintly in a warm stripe (ET minutes).
+    // every: 1 = weekly, 2 = every other week (anchor = a real occurrence, [y, monthIndex, day])
+    const doenetMeetings = [
+      { name: 'Office Hours', tag: 'Office Hours', day: 'Tuesdays', time: '2:00 - 4:00 PM ET', startH: 14, startM: 0, endH: 16, endM: 0, every: 1, hostUrl: 'http://mathtech.org/dropin', uid: 'doenet-office-hours' },
+      { name: 'Community Feedback', tag: 'Community Feedback', day: 'Tuesdays', time: '11:00 AM - 12:00 PM ET', startH: 11, startM: 0, endH: 12, endM: 0, every: 2, anchor: [2026, 7, 11], hostUrl: 'https://umn.zoom.us/j/93272519285?pwd=uRdZVd0Ju5gvtbwY9k4V3fAhMUzvaF.1&jst=2', uid: 'doenet-community-feedback' },
+      { name: 'Accessibility Meeting', tag: 'Accessibility', day: 'Thursdays', time: '4:00 - 5:00 PM ET', startH: 16, startM: 0, endH: 17, endM: 0, every: 1, hostUrl: 'https://umn.zoom.us/j/92412949310?pwd=gNo34W0hKXbasiI1CqN6ECdgHXObZX.1&jst=2', uid: 'doenet-accessibility' },
+    ];
+    const _mtgD3 = (x) => x.day.slice(0, 3);
+    const _mtgS = (x) => x.startH * 60 + x.startM;
+    const meetingAt = (d, m) => doenetMeetings.find(x => _mtgD3(x) === d && m >= _mtgS(x) && m < x.endH * 60 + x.endM);
+    const meetingStartAt = (d, m) => doenetMeetings.find(x => _mtgD3(x) === d && _mtgS(x) >= m && _mtgS(x) < m + 30);
 
     const gridRows = [];
     for (let m = startHour * 60; m < endHour * 60; m += 30) {
@@ -610,15 +654,17 @@ class Component extends DCLogic {
           const sel = !!this.state.slots[k];
           const meets = podMeets(d, m);
           const startsHere = (sessionsByDay[d] || []).some(rg => rg[0] >= m && rg[0] < m + 30);
-          const office = officeMeets(d, m);
+          const mtg = meetingAt(d, m);
+          const mtgStart = meetingStartAt(d, m);
+          const office = !!mtg;
           return {
             key: k,
             bg: sel
               ? ((meets || office) ? 'repeating-linear-gradient(135deg,rgba(255,255,255,.28) 0 3px,transparent 3px 7px), #2999BE' : '#2999BE')
-              : (meets ? 'repeating-linear-gradient(135deg,#D4F1F9 0 3px,#FFFFFF 3px 7px)' : (office ? 'repeating-linear-gradient(135deg,#EADFC9 0 3px,#FFFFFF 3px 7px)' : '#FFFFFF')),
-            tag: !sel ? (startsHere ? 'Proofing Room' : (officeStarts(d, m) ? 'Office Hours' : '')) : '',
+              : (meets ? 'repeating-linear-gradient(135deg,#D4F1F9 0 3px,#FFFFFF 3px 7px)' : (office ? ('repeating-linear-gradient(135deg,#EADFC9 0 3px,#FFFFFF 3px ' + (mtg.every > 1 ? '15px' : '7px') + ')') : '#FFFFFF')),
+            tag: !sel ? (startsHere ? 'Proofing Room' : (mtgStart ? mtgStart.tag : '')) : '',
             tagColor: startsHere ? '#17505E' : '#8A4F22',
-            aria: d + ' ' + lbl + ' - ' + (sel ? 'free' : 'busy') + (meets ? ' (a proofing room already meets at this time - you can still pick it)' : (office ? ' (Doenet office hours meet at this time - you can still pick it)' : '')),
+            aria: d + ' ' + lbl + ' - ' + (sel ? 'free' : 'busy') + (meets ? ' (a proofing room already meets at this time - you can still pick it)' : (office ? (' (Doenet ' + mtg.name + (mtg.every > 1 ? ', every other week,' : '') + ' meets at this time - you can still pick it)') : '')),
             ariaPressed: sel ? 'true' : 'false',
           };
         }),
@@ -679,9 +725,9 @@ class Component extends DCLogic {
     const humanLines = dayRanges.map(x => x.d + ': ' + (x.rs.length ? x.rs.map(r => fmt12(r.s) + '-' + fmt12(r.e)).join(', ') : '(none)'));
     const keyLine = dayRanges.map(x => x.d + '=' + (x.rs.length ? x.rs.map(r => fmt24(r.s) + '-' + fmt24(r.e)).join(',') : '-')).join('|');
     const podKey = podNames.map(p => p.replace('Test Kitchen: ', 'TK ')).join('; ');
-    const subject = 'Author Pods signup - ' + (nm || '(no name)') + ' - Summer 2026';
+    const subject = 'Author Pods signup - ' + (nm || '(no name)') + ' - Fall 2026';
     const bodyLines = [
-      'AUTHOR PODS SIGNUP - SUMMER 2026', '',
+      'AUTHOR PODS SIGNUP - FALL 2026', '',
       'Name: ' + nm,
       'Email: ' + em,
       'Time zone: ' + tzLabel + ' [' + tz + ']', '',
@@ -772,7 +818,7 @@ class Component extends DCLogic {
     const buildIcs = (r, o) => {
       o = o || {};
       if (typeof r.startH !== 'number') return '';
-      const d = _nextDate(_dayIdx[r.day]);
+      const d = o.date || _nextDate(_dayIdx[r.day]);
       const ds = '' + d.getFullYear() + _pad(d.getMonth() + 1) + _pad(d.getDate());
       const dtStart = ds + 'T' + _pad(r.startH) + _pad(r.startM) + '00';
       const dtEnd = ds + 'T' + _pad(r.endH) + _pad(r.endM) + '00';
@@ -781,10 +827,30 @@ class Component extends DCLogic {
       const uid = (o.uidPrefix || ('doenet-proofing-' + r.day.toLowerCase())) + '-' + dtStart + '@doenet.org';
       const summary = _icsEsc(o.summary || 'Doenet Author Pod - Proofing Room');
       const desc = _icsEsc(o.description || ('Doenet Author Pods proofing room. ' + r.members + '. Join link: ' + r.hostUrl));
-      return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Doenet//Author Pods//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', _VTZ, 'BEGIN:VEVENT', 'UID:' + uid, 'DTSTAMP:' + stamp, 'DTSTART;TZID=America/New_York:' + dtStart, 'DTEND;TZID=America/New_York:' + dtEnd, 'RRULE:FREQ=WEEKLY;BYDAY=' + _dayCode[r.day], 'SUMMARY:' + summary, 'LOCATION:' + _icsEsc(r.hostUrl), 'URL:' + r.hostUrl, 'DESCRIPTION:' + desc, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Doenet//Author Pods//EN', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH', _VTZ, 'BEGIN:VEVENT', 'UID:' + uid, 'DTSTAMP:' + stamp, 'DTSTART;TZID=America/New_York:' + dtStart, 'DTEND;TZID=America/New_York:' + dtEnd, 'RRULE:FREQ=WEEKLY;' + (o.interval > 1 ? 'INTERVAL=' + o.interval + ';' : '') + 'BYDAY=' + _dayCode[r.day], 'SUMMARY:' + summary, (r.hostUrl ? 'LOCATION:' + _icsEsc(r.hostUrl) : ''), (r.hostUrl ? 'URL:' + r.hostUrl : ''), 'DESCRIPTION:' + desc, 'END:VEVENT', 'END:VCALENDAR'].filter(Boolean).join('\r\n');
     };
-    const downloadIcs = (name, text) => (e) => {
+    const _inFrame = (() => { try { return window.self !== window.top; } catch (e) { return true; } })();
+    const _gcalStamp = (d, h, mi) => '' + d.getFullYear() + _pad(d.getMonth() + 1) + _pad(d.getDate()) + 'T' + _pad(h) + _pad(mi) + '00';
+    const buildGcal = (r, o) => {
+      o = o || {};
+      if (typeof r.startH !== 'number') return '';
+      const d = o.date || _nextDate(_dayIdx[r.day]);
+      const p = new URLSearchParams();
+      p.set('action', 'TEMPLATE');
+      p.set('text', o.summary || 'Doenet Author Pod - Proofing Room');
+      p.set('dates', _gcalStamp(d, r.startH, r.startM) + '/' + _gcalStamp(d, r.endH, r.endM));
+      p.set('ctz', 'America/New_York');
+      p.set('recur', 'RRULE:FREQ=WEEKLY;' + (o.interval > 1 ? 'INTERVAL=' + o.interval + ';' : '') + 'BYDAY=' + _dayCode[r.day]);
+      p.set('details', o.description || ('Doenet Author Pods proofing room. ' + (r.members || '') + (r.hostUrl ? '. Join link: ' + r.hostUrl : '')));
+      if (r.hostUrl) p.set('location', r.hostUrl);
+      return 'https://calendar.google.com/calendar/render?' + p.toString();
+    };
+    const downloadIcs = (name, text, gcal) => (e) => {
       if (e && e.preventDefault) e.preventDefault();
+      // Sandboxed previews and some hosts refuse .ics downloads - fall back to a
+      // Google Calendar template link so the button never dead-ends.
+      const openGcal = () => { if (gcal) window.open(gcal, '_blank', 'noopener'); };
+      if (_inFrame) { openGcal(); return; }
       try {
         const blob = new Blob([text], { type: 'text/calendar;charset=utf-8' });
         const url = URL.createObjectURL(blob);
@@ -792,12 +858,13 @@ class Component extends DCLogic {
         a.href = url; a.download = name;
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
         setTimeout(() => URL.revokeObjectURL(url), 1500);
-      } catch (err) { window.open('data:text/calendar;charset=utf-8,' + encodeURIComponent(text)); }
+      } catch (err) { openGcal(); }
     };
     const proofRooms = proofRoomsRaw.map(r => {
       const icsText = buildIcs(r);
+      const gcal = buildGcal(r);
       const calName = 'Doenet Proofing Room - ' + r.day + '.ics';
-      return { ...r, hasMail: !!r.hostMail, noMail: !r.hostMail, hostMailto: r.hostMail ? ('mailto:' + r.hostMail) : '', isTeams: !!(r.hostUrl && r.hostUrl.indexOf('teams.') !== -1), isZoom: !!(r.hostUrl && r.hostUrl.indexOf('teams.') === -1), hasCal: !!icsText, calName, calHref: icsText ? ('data:text/calendar;charset=utf-8,' + encodeURIComponent(icsText)) : '', onCal: icsText ? downloadIcs(calName, icsText) : null };
+      return { ...r, hasMail: !!r.hostMail, noMail: !r.hostMail, hostMailto: r.hostMail ? ('mailto:' + r.hostMail) : '', isTeams: !!(r.hostUrl && r.hostUrl.indexOf('teams.') !== -1), isZoom: !!(r.hostUrl && r.hostUrl.indexOf('teams.') === -1), hasCal: !!icsText, calName, calHref: icsText ? ('data:text/calendar;charset=utf-8,' + encodeURIComponent(icsText)) : '', onCal: icsText ? downloadIcs(calName, icsText, gcal) : null };
     });
     const testKitchens = [
       { day: 'Tuesdays', time: '4:00 PM ET', focus: 'Calculus', members: 'Jinsook · Kris · Nick', full: true },
@@ -805,8 +872,56 @@ class Component extends DCLogic {
       { day: 'Thursdays', time: '10:00 AM ET', focus: 'Mixed Topics', members: 'Anurag · Carly · Carrie · Megan', full: true },
       { day: 'Thursdays', time: '4:00 PM ET', focus: 'Precalc & Trig', members: 'Aishwarya · Jinsook · Mike · Nick', full: true },
     ].map(k => ({ ...k, timeLabel: k.time || 'Time TBD', hasFocus: !!k.focus && k.focus !== 'General', full: !!k.full, hasSeats: !!k.seatsOpen, seatsLabel: 'Open', members: k.seatsOpen ? k.members + ' · room for one more' : k.members }));
-    const officeHoursIcs = buildIcs({ day: 'Tuesdays', startH: 14, startM: 0, endH: 16, endM: 0, hostUrl: 'http://mathtech.org/dropin' }, { summary: 'Doenet Office Hours', uidPrefix: 'doenet-office-hours-tuesdays', description: 'Doenet Office Hours - drop-in help with DoenetML. Bring specific questions or just work alongside others. Join: http://mathtech.org/dropin' });
+    const officeHoursR = { day: 'Tuesdays', startH: 14, startM: 0, endH: 16, endM: 0, hostUrl: 'http://mathtech.org/dropin' };
+    const officeHoursO = { summary: 'Doenet Office Hours', uidPrefix: 'doenet-office-hours-tuesdays', description: 'Doenet Office Hours - drop-in help with DoenetML. Bring specific questions or just work alongside others. Join: http://mathtech.org/dropin' };
+    const officeHoursIcs = buildIcs(officeHoursR, officeHoursO);
+    const officeHoursGcal = buildGcal(officeHoursR, officeHoursO);
     const officeHoursCalName = 'Doenet Office Hours - Tuesdays.ics';
+
+    // ---------- Doenet-wide meetings (schedule listing) ----------
+    const _dayShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const _monShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const _today0 = (() => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth(), n.getDate()); })();
+    const _nextOccur = (x) => {
+      if (x.every > 1 && x.anchor) {
+        const d = new Date(x.anchor[0], x.anchor[1], x.anchor[2]);
+        while (d < _today0) d.setDate(d.getDate() + 7 * x.every);
+        return d;
+      }
+      return _nextDate(_dayIdx[x.day]);
+    };
+    const _fmtDay = (d) => _dayShort[d.getDay()] + ', ' + _monShort[d.getMonth()] + ' ' + d.getDate();
+    const standingMeetings = doenetMeetings.map(x => {
+      const nd = _nextOccur(x);
+      const after = new Date(nd.getTime()); after.setDate(after.getDate() + 7 * x.every);
+      const ics = buildIcs(x, {
+        summary: 'Doenet ' + x.name,
+        uidPrefix: x.uid,
+        date: nd,
+        interval: x.every,
+        description: 'Doenet ' + x.name + ' - ' + (x.every > 1 ? 'every other ' + x.day.slice(0, -1) : 'weekly') + ', ' + x.time + '.',
+      });
+      const gcal = buildGcal(x, {
+        summary: 'Doenet ' + x.name,
+        date: nd,
+        interval: x.every,
+        description: 'Doenet ' + x.name + ' - ' + (x.every > 1 ? 'every other ' + x.day.slice(0, -1) : 'weekly') + ', ' + x.time + '.',
+      });
+      const calName = 'Doenet ' + x.name + '.ics';
+      return {
+        ...x,
+        dayTime: x.day + ' · ' + x.time,
+        isWeekly: x.every === 1,
+        isBiweekly: x.every > 1,
+        cadence: x.every > 1 ? 'Every other ' + x.day.slice(0, 3) : 'Every week',
+        nextLabel: 'Next ' + _fmtDay(nd) + ', then ' + _fmtDay(after),
+        hasLink: !!x.hostUrl,
+        hasCal: !!ics,
+        calHref: ics ? ('data:text/calendar;charset=utf-8,' + encodeURIComponent(ics)) : '',
+        calName,
+        onCal: ics ? downloadIcs(calName, ics, gcal) : null,
+      };
+    });
 
     const isMobile = !!this.state.isMobile;
     const menuOpen = !!this.state.menuOpen;
@@ -857,9 +972,10 @@ class Component extends DCLogic {
       // schedule + help
       proofRooms,
       testKitchens,
+      standingMeetings,
       officeHoursCalHref: officeHoursIcs ? ('data:text/calendar;charset=utf-8,' + encodeURIComponent(officeHoursIcs)) : '',
       officeHoursCalName,
-      officeHoursOnCal: officeHoursIcs ? downloadIcs(officeHoursCalName, officeHoursIcs) : null,
+      officeHoursOnCal: officeHoursIcs ? downloadIcs(officeHoursCalName, officeHoursIcs, officeHoursGcal) : null,
     };
   }
 }
